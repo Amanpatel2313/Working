@@ -1,0 +1,73 @@
+1.// Function is called before it is declared
+console.log(addNumbers(5, 10)); // This will work due to hoisting
+
+// Function declaration (hoisted)
+function addNumbers(a, b) {
+  return a + b;
+}
+
+// Now you can call the function
+console.log(addNumbers(5, 10)); // Output: 15
+
+
+2.// Function is called before it is declared
+console.log(multiplyNumbers(3, 7)); // This will not work
+
+// Function expression (not hoisted)
+const multiplyNumbers = function(a, b) {
+  return a * b;
+};
+
+// Now you can call the function
+console.log(multiplyNumbers(3, 7)); // Output: 21
+
+
+3.function addNumbers(a, b) {
+  // Variable declaration with var keyword
+  var result;
+  
+  // Log the value of the variable before assigning a value
+  console.log(result); // Output: undefined
+  
+  // Assign a value to the variable
+  result = a + b;
+  
+  return result;
+}
+
+// Call the function
+console.log(addNumbers(5, 10)); // Output: 15
+
+
+4.// Variable declared using let (block-scoped)
+{
+  console.log(x); // Output: ReferenceError: x is not defined
+  let x = 10;
+  console.log(x); // Output: 10
+}
+
+// Variable declared using var (function-scoped)
+{
+  console.log(y); // Output: undefined
+  var y = 20;
+  console.log(y); // Output: 20
+}
+
+// Variable declared using const (block-scoped)
+{
+  console.log(z); // Output: ReferenceError: z is not defined
+  const z = 30;
+  console.log(z); // Output: 30
+}
+
+5.// Variable declared using let inside a block scope
+{
+  // Trying to log the value before initialization
+  console.log(x); // Output: ReferenceError: Cannot access 'x' before initialization
+
+  // Variable initialization
+  let x = 10;
+  
+  // Now you can access the variable
+  console.log(x); // Output: 10
+}
